@@ -168,6 +168,31 @@ class engine {
 		this.currentScene.connectPlayer(socket, username);
 	}
 
+
+	// client side web socket functions:
+
+	// rename function but we're adding the listener functions here
+	// see also setup_websocket in cilent index.js
+	connectToServer(socket) {
+		socket.on('playerTeleportStart', (data) => {
+			// switch scene to transition scene
+			// data includes which scene to switch to for preloading/transition data
+		})
+
+		socket.on('playerTeleportDestination', (data) => {
+			// data includes dest servers scene_name, origin, path to establish ws connection
+			// check if player in transition scene state
+			// send websocket connection request with server
+			// call connectToServer on new websocket(?)
+		})
+	}
+
+	// server side websocket functions
+	// note: this.io is the wss
+	// see game/index.js for stuff
+
+
+
 }
 
 export default engine;
